@@ -33,7 +33,7 @@ Kalman::Kalman() {
 };
 
 // The angle should be in degrees and the rate should be in degrees per second and the delta time in seconds
-float Kalman::getAngle(float newAngle, float newRate, float dt) {
+float Kalman::update(float newAngle, float newRate, float dt) {
     // KasBot V2  -  Kalman filter module - http://www.x-firm.com/?page_id=145
     // Modified by Kristian Lauszus
     // See my blog post for more information: http://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it
@@ -76,11 +76,10 @@ float Kalman::getAngle(float newAngle, float newRate, float dt) {
     P[0][1] -= K[0] * P01_temp;
     P[1][0] -= K[1] * P00_temp;
     P[1][1] -= K[1] * P01_temp;
-
-    return angle;
 };
 
 void Kalman::setAngle(float angle) { this->angle = angle; }; // Used to set angle, this should be set as the starting angle
+float Kalman::getAngle() { return this->angle; }; // Return the unbiased rate
 float Kalman::getRate() { return this->rate; }; // Return the unbiased rate
 
 /* These are used to tune the Kalman filter */
