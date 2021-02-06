@@ -1,3 +1,6 @@
+All credit for the implementation of the Kalman Filter goes to Kristian Lauszus. I simply added extra functionality. NOTE: The examples no longer work
+
+
 #### Developed by Kristian Lauszus, TKJ Electronics 2012
 
 The code is released under the GNU General Public License.
